@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-02-17 11:48:18
-  from 'C:\wamp\www\carpetTienda\Tienda_Practica3\template\listadoProductos.tpl' */
+/* Smarty version 3.1.33, created on 2019-02-08 10:41:04
+  from 'C:\wamp\www\carpeta_tienda\Tienda_Practica\template\listadoProductos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c694a025f1101_54908603',
+  'unifunc' => 'content_5c5d5cc0115a19_09263091',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '65e2b779e1e7513c9b42b8570c34d6ef8dcaeac7' => 
+    'c5fb5e22c6fd13bfaaefc12c8d16654695cd930f' => 
     array (
-      0 => 'C:\\wamp\\www\\carpetTienda\\Tienda_Practica3\\template\\listadoProductos.tpl',
-      1 => 1550403984,
+      0 => 'C:\\wamp\\www\\carpeta_tienda\\Tienda_Practica\\template\\listadoProductos.tpl',
+      1 => 1549622461,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c694a025f1101_54908603 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c5d5cc0115a19_09263091 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
     <head>
@@ -47,28 +47,41 @@ function content_5c694a025f1101_54908603 (Smarty_Internal_Template $_smarty_tpl)
                     <table class="table table-striped table-dark">
                         <thead >
                             <tr>
-                                <th>Nombre</th>
-                                <th>PVP</th>
-                            </tr> 
+                                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['campos']->value, 'campo');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['campo']->value) {
+?>
+                                    <th><?php echo $_smarty_tpl->tpl_vars['campo']->value;?>
+</th>
+                                <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></tr> 
                         </thead>
                         <tbody>
-                            <tr> 
+                            <tr>
                                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['productos']->value, 'contact', false, NULL, 'outer', array (
 ));
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['contact']->value) {
 ?>
-                                    <td> <?php echo $_smarty_tpl->tpl_vars['contact']->value['nombre_corto'];?>
 
-                                    </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['contact']->value['PVP'];?>
+                                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['contact']->value, 'item', false, 'key');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['item']->value) {
+?>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['item']->value;?>
 </td>
-                                    <td>  <form action="listadoProductos.php" method="POST">
-                                            <input type="hidden" name="cod" value="<?php echo $_smarty_tpl->tpl_vars['contact']->value['cod'];?>
-">
-                                            <input type="submit" class="btn btn-light"name="añadir" value="añadir"></form></td> </tr>
-                                        <?php
+                                    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                                    <td><form action="#"><input type="submit" class="btn btn-light"name="añadir" value="añadir"></form></td> </tr>
+
+                            <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>               

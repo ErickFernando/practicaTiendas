@@ -21,3 +21,12 @@ $smarty->assign('user', $user);
 $smarty->display('listadoProductos.tpl');
 
 
+//obtenemos el codigo del producto y creamos un el objeot producto elegido
+$pro = new Producto($_POST['cod']);
+$productos=[];
+$c = new Cesta();
+if (isset($_POST['añadir'])) {
+//    $c->agregarProductos($pro->getCod(), $pro->getPvp());
+     $productos[$pro->getCod()] = $pro->getPvp();
+    var_dump($productos);
+}
