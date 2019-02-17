@@ -23,7 +23,6 @@ $smarty->display('listadoProductos.tpl');
 //obtenemos el codigo del producto y creamos un el objeot producto elegido
 if (isset($_POST['añadir'])) {
 
-  
     $c = new Cesta($_POST['hidden']);
     $c->agregarProductos();
 }

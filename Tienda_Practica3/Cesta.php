@@ -8,7 +8,7 @@
 class Cesta extends Producto {
 
     //put your code here
-    private $productos = [["cod" => null, "pvp" => null]];
+    private $productos = [];
 
     /**
      * constructor
@@ -20,11 +20,18 @@ class Cesta extends Producto {
     }
 
     public function agregarProductos() {
-        $this->productos['cod'] = $this->getCod();
-        $this->productos['pvp'] = $this->getPvp();
-
+        $this->productos[$this->getCod()] = $this->getPvp();
+        
 
         var_dump($this->productos);
+    }
+
+    function getProductos() {
+        return $this->productos;
+    }
+
+    function setProductos($productos) {
+        $this->productos = $productos;
     }
 
 }
