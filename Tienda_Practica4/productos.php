@@ -8,8 +8,8 @@ $smarty->template_dir = "./template";
 $smarty->compile_dir = "./template_c";
 
 $user = $_SESSION['user'];
-
-
+//comprobamos q c este incializado y creado y si no esta creamos el objeto cesta
+//$c = (isset($_SESSION['c'])) ? $_SESSION['c'] : $_SESSION['c'] = new Cesta;
 //mostramos los datos en listadoProtuctos.tpl
 $productos = ConexionPDO::obtieneProductos("producto");
 
@@ -18,15 +18,16 @@ $productos = ConexionPDO::obtieneProductos("producto");
 //el usuario con el que estas loggeado
 $smarty->assign('productos', $productos);
 $smarty->assign('user', $user);
-$smarty->display('listadoProductos.tpl');
 
-
-//obtenemos el codigo del producto y creamos un el objeot producto elegido
-$pro = new Producto($_POST['cod']);
-$productos=[];
-$c = new Cesta();
 if (isset($_POST['añadir'])) {
-//    $c->agregarProductos($pro->getCod(), $pro->getPvp());
-     $productos[$pro->getCod()] = $pro->getPvp();
-    var_dump($productos);
+
+    $_SESSION['cod'] = $_POST['cod'];
+    Cesta::nuevoArticulo();
+    $productos = Cesta::obtenerProductos();
+    $total = Cesta::getTotal();
+    $smarty->assign('total', $total);
+    $smarty->assign('productosCesta', $productos);
+    
 }
+
+$smarty->display('productos.tpl');
