@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-02-18 19:33:05
+/* Smarty version 3.1.33, created on 2019-02-19 12:37:56
   from 'C:\wamp\www\carpetTienda\Tienda_Practica5\template\cesta.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c6b08714d4e81_43487658',
+  'unifunc' => 'content_5c6bf8a43ea6e7_40415096',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dce1bf72204a5e25d975390d1b0ba1a103587baa' => 
     array (
       0 => 'C:\\wamp\\www\\carpetTienda\\Tienda_Practica5\\template\\cesta.tpl',
-      1 => 1550517535,
+      1 => 1550579873,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c6b08714d4e81_43487658 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c6bf8a43ea6e7_40415096 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
     <head>
@@ -30,7 +30,7 @@ function content_5c6b08714d4e81_43487658 (Smarty_Internal_Template $_smarty_tpl)
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-        <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     </head>
     <body>
         <div class="container-fluid">
@@ -38,7 +38,7 @@ function content_5c6b08714d4e81_43487658 (Smarty_Internal_Template $_smarty_tpl)
                 <h3>Cesta</h3>
             </header>
         </div>
-        <div class="container-fluid bg-dark text-white">
+        <div class="container-fluid" style="background-color: #CECBCB">
             <section >
                 <?php if (!empty($_smarty_tpl->tpl_vars['productosCesta']->value)) {?>
                     <?php
@@ -47,25 +47,36 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['contact']->value) {
 ?>
-                        <span class="font-weight-light"><?php echo $_smarty_tpl->tpl_vars['contact']->value[0];?>
+                        <span class="font-weight-light" style="float: left"><?php echo $_smarty_tpl->tpl_vars['contact']->value[0];?>
  <?php echo $_smarty_tpl->tpl_vars['contact']->value[1];?>
  <?php echo $_smarty_tpl->tpl_vars['contact']->value[2];?>
 $</span>
-                        <br/>
-
-                    <?php
+                        <form action="productos.php" method="POST" ><input type="hidden" name="cod" value="<?php echo $_smarty_tpl->tpl_vars['contact']->value[1];?>
+">
+                            <input type="submit" class="btn btn-dark" style="border-radius: 20px;font-size: 12px; margin-left: 20px;margin-bottom: 5px" name="quitar" value="quitar" ></form>
+                        <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> 
+
                 <?php } else { ?>
                     <span class="font-weight-light"> Cesta Vacia</span>
+
                 <?php }?>
+
             </section>
+
         </div>
         <div class="container-fluid bg-dark text-white">
             <section >
-                <span class="font-weight-light"><?php if (!empty($_smarty_tpl->tpl_vars['total']->value)) {?>Total <?php echo $_smarty_tpl->tpl_vars['total']->value;?>
+                <span class="font-weight-light" style="float: left"><?php if (!empty($_smarty_tpl->tpl_vars['total']->value)) {?>Total <?php echo $_smarty_tpl->tpl_vars['total']->value;?>
 $<?php }?> </span>
+                <form action="productos.php" method="post">
+                    <?php echo $_smarty_tpl->tpl_vars['input']->value;?>
+
+                   <?php echo $_smarty_tpl->tpl_vars['input2']->value;?>
+
+                </form>
             </section>
         </div>
     </body>

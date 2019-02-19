@@ -40,8 +40,22 @@ class Cesta {
     }
 
     public static function nuevoArticulo() {
+
         $cod = $_SESSION['cod'];
         $_SESSION['productos'][$cod] ++;
+//        $p = new Producto($_SESSION['cod']);
+//
+//        self::agregarProductos($p->getCod(), $p->getPvp());
+    }
+
+    public static function eliminarProducto() {
+        $cod = $_SESSION['cod'];
+        if ($_SESSION['productos'][$cod] > 0) {
+            $_SESSION['productos'][$cod] --;
+        }
+        if ($_SESSION['productos'][$cod] == 0) {
+            unset($_SESSION['productos'][$cod]);
+        }
 //        $p = new Producto($_SESSION['cod']);
 //
 //        self::agregarProductos($p->getCod(), $p->getPvp());

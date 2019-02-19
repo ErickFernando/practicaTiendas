@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-02-18 19:33:05
+/* Smarty version 3.1.33, created on 2019-02-19 11:12:48
   from 'C:\wamp\www\carpetTienda\Tienda_Practica5\template\listadoProductos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c6b0871421c33_73225789',
+  'unifunc' => 'content_5c6be4b0032190_40497312',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a4c0c73b310381eaedd702003fd540ca450954dc' => 
     array (
       0 => 'C:\\wamp\\www\\carpetTienda\\Tienda_Practica5\\template\\listadoProductos.tpl',
-      1 => 1550405968,
+      1 => 1550574764,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c6b0871421c33_73225789 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c6be4b0032190_40497312 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
     <head>
@@ -29,7 +29,7 @@ function content_5c6b0871421c33_73225789 (Smarty_Internal_Template $_smarty_tpl)
         <title>Listado</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-        <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     </head>
     <body>
         <div class="container-fluid">
