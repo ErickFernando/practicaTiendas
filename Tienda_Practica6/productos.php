@@ -2,7 +2,7 @@
 
 require ('cargarcontroladores.php');
 require ('controlador.php');
-
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 $smarty = new Smarty;
 $smarty->template_dir = "./template";
 $smarty->compile_dir = "./template_c";
@@ -55,7 +55,10 @@ if (Cesta::obtenerProductos() == null) {
 }
 
 if (isset($_POST['Pagar'])) {
-    $smarty->display('pagar.tpl');
+//    var_dump($_SESSION['productos']);
+//    $_SESSION['productosT']=Cesta::obtenerProductos();
+    $_SESSION['total'] = Cesta::getTotal();
+    header("Location:pagar.php");
 } else {
     $smarty->display('productos.tpl');
 }

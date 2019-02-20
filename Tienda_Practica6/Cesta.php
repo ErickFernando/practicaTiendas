@@ -22,8 +22,10 @@ class Cesta {
         if (isset($_SESSION['productos'])) {
             foreach ($_SESSION['productos'] as $key => $value) {
                 self::$productos[] = [self::getUniades($key), $key, self::obtenerPrecio($key)];
+               
             }
         }
+         
         return self::$productos;
     }
 
