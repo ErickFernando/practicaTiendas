@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-02-19 11:12:48
+/* Smarty version 3.1.33, created on 2019-02-21 11:00:03
   from 'C:\wamp\www\carpetTienda\Tienda_Practica5\template\listadoProductos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c6be4b0032190_40497312',
+  'unifunc' => 'content_5c6e84b3c08022_76221816',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a4c0c73b310381eaedd702003fd540ca450954dc' => 
     array (
       0 => 'C:\\wamp\\www\\carpetTienda\\Tienda_Practica5\\template\\listadoProductos.tpl',
-      1 => 1550574764,
+      1 => 1550746800,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c6be4b0032190_40497312 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c6e84b3c08022_76221816 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
     <head>
@@ -59,26 +59,32 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['contact']->value) {
 ?>
-                                    <td> <?php echo $_smarty_tpl->tpl_vars['contact']->value['nombre_corto'];?>
 
-                                    </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['contact']->value['PVP'];?>
+                                    <?php if (($_smarty_tpl->tpl_vars['contact']->value['familia'] == 'ORDENA')) {?>
+                                        <td> <a href="descripcion.php?productos=<?php echo $_smarty_tpl->tpl_vars['contact']->value['cod'];?>
+"><?php echo $_smarty_tpl->tpl_vars['contact']->value['nombre_corto'];?>
+</a>
+                                        <?php } else { ?>
+                                        <td> <?php echo $_smarty_tpl->tpl_vars['contact']->value['nombre_corto'];?>
+
+                                        </td><?php }?> 
+                                        <td><?php echo $_smarty_tpl->tpl_vars['contact']->value['PVP'];?>
 </td>
-                                    <td>  <form action="productos.php" method="POST">
-                                            <input type="hidden" name="cod" value="<?php echo $_smarty_tpl->tpl_vars['contact']->value['cod'];?>
+                                        <td>  <form action="productos.php" method="POST">
+                                                <input type="hidden" name="cod" value="<?php echo $_smarty_tpl->tpl_vars['contact']->value['cod'];?>
 ">
-                                            <input type="submit" class="btn btn-light"name="añadir" value="añadir"></form></td> </tr>
-                                        <?php
+                                                <input type="submit" class="btn btn-light"name="añadir" value="añadir"></form></td></tr>
+                                                <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>               
-                        </tbody> 
+                                    </tbody> 
 
-                    </table>
+                                </table>
 
-                </section>
-            </div>
-        </div>
-    </body>
-</html><?php }
+                            </section>
+                        </div>
+                    </div>
+                </body>
+            </html><?php }
 }

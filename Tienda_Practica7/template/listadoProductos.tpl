@@ -30,19 +30,22 @@
                         <tbody>
                             <tr> 
                                 {foreach name=outer item=contact from=$productos}
-                                    <td> {$contact['nombre_corto']}
-                                    </td>
-                                    <td>{$contact['PVP']}</td>
-                                    <td>  <form action="productos.php" method="POST">
-                                            <input type="hidden" name="cod" value="{$contact['cod']}">
-                                            <input type="submit" class="btn btn-light"name="añadir" value="añadir"></form></td> </tr>
-                                        {/foreach}               
-                        </tbody> 
+                                    {if ($contact['familia'] eq 'ORDENA')}
+                                        <td> <a href="descripcion.php?productos={$contact['cod']}">{$contact['nombre_corto']}</a>
+                                        {else}
+                                        <td> {$contact['nombre_corto']}
+                                        </td>{/if} 
+                                        <td>{$contact['PVP']}</td>
+                                        <td>  <form action="productos.php" method="POST">
+                                                <input type="hidden" name="cod" value="{$contact['cod']}">
+                                                <input type="submit" class="btn btn-light"name="añadir" value="añadir"></form></td></tr>
+                                                {/foreach}        
+                                    </tbody> 
 
-                    </table>
+                                </table>
 
-                </section>
-            </div>
-        </div>
-    </body>
-</html>
+                            </section>
+                        </div>
+                    </div>
+                </body>
+            </html>
