@@ -8,19 +8,20 @@ $smarty->template_dir = "./template";
 $smarty->compile_dir = "./template_c";
 
 $user = $_SESSION['user'];
-$productos= $_SESSION['productos'];
+$productos = $_SESSION['productosT'];
 
-$totalSinIva =$_SESSION['total'];
-$totalConIva =$_SESSION['total']*0.21;
-$cantidadProdcutos=0;
-foreach ($productos as $key => $cantidad) {
-    $cantidadProdcutos+=$cantidad;
+//calcullamos el iva 
+$totalSinIva = $_SESSION['total'];
+$totalConIva = $_SESSION['total'] * 0.21;
+$cantidadProdcutos = 0;
+foreach ($productos as $i => $va) {
+    $cantidadProdcutos += $va[2];
 }
-$resumenTotal= $totalConIva+$totalSinIva;
+$resumenTotal = $totalConIva + $totalSinIva;
 
 
 $Fechahoy = getdate();
-$Fechahoy=$Fechahoy['mday']." - ".$Fechahoy['mon']." - ".$Fechahoy['year'];
+$Fechahoy = $Fechahoy['mday'] . " - " . $Fechahoy['mon'] . " - " . $Fechahoy['year'];
 
 $smarty->assign('Fechahoy', $Fechahoy);
 $smarty->assign('TotalsinIva', $totalSinIva);

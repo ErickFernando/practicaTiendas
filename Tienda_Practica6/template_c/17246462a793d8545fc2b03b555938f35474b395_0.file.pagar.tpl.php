@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-02-19 20:07:32
+/* Smarty version 3.1.33, created on 2019-02-21 11:53:20
   from 'C:\wamp\www\carpetTienda\Tienda_Practica6\template\pagar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c6c6204d9f4d4_77167306',
+  'unifunc' => 'content_5c6e9130d0bd95_48070895',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '17246462a793d8545fc2b03b555938f35474b395' => 
     array (
       0 => 'C:\\wamp\\www\\carpetTienda\\Tienda_Practica6\\template\\pagar.tpl',
-      1 => 1550606852,
+      1 => 1550749957,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c6c6204d9f4d4_77167306 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c6e9130d0bd95_48070895 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
     <head>
@@ -47,7 +47,7 @@ function content_5c6c6204d9f4d4_77167306 (Smarty_Internal_Template $_smarty_tpl)
                     <thead>
                         <tr class="pago"><th class="pago">Articulo</th>
                             <th class="pago">Cantidad</th>
-                            <th class="pago">Precio Unitario</th></tr>
+                            <th class="pago">Precio</th></tr>
 
                     </thead>
                     <?php
@@ -57,9 +57,11 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['contact']->value) {
 ?>
                         <tr class="pago">
-                            <td class="pago"> <span class="font-weight-light" style="float: left"><?php echo $_smarty_tpl->tpl_vars['key']->value;?>
+                            <td class="pago"> <span class="font-weight-light" style="float: left"><?php echo $_smarty_tpl->tpl_vars['contact']->value[1];?>
 </span></td>
-                            <td class="pago"> <span class="font-weight-light" style="float: left"><?php echo $_smarty_tpl->tpl_vars['contact']->value;?>
+                            <td class="pago"> <span class="font-weight-light" style="float: left"><?php echo $_smarty_tpl->tpl_vars['contact']->value[0];?>
+</span></td>
+                            <td class="pago"> <span class="font-weight-light" style="float: left"><?php echo $_smarty_tpl->tpl_vars['contact']->value[2];?>
 </span></td></tr>
 
                     <?php

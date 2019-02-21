@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-02-20 12:31:58
+/* Smarty version 3.1.33, created on 2019-02-21 11:48:59
   from 'C:\wamp\www\carpetTienda\Tienda_Practica7\template\pagar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c6d48beb15402_44783368',
+  'unifunc' => 'content_5c6e902b6e0480_92615759',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '320f569cce9cccce73e92e40faae809697fa6396' => 
     array (
       0 => 'C:\\wamp\\www\\carpetTienda\\Tienda_Practica7\\template\\pagar.tpl',
-      1 => 1550665896,
+      1 => 1550749735,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c6d48beb15402_44783368 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c6e902b6e0480_92615759 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
     <head>
@@ -47,9 +47,10 @@ function content_5c6d48beb15402_44783368 (Smarty_Internal_Template $_smarty_tpl)
                     <thead>
                         <tr class="pago"><th class="pago">Articulo</th>
                             <th class="pago">Cantidad</th>
-                            <th class="pago">Precio Unitario</th></tr>
+                            <th class="pago">Precio</th></tr>
 
                     </thead>
+                   
                     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['productos']->value, 'contact', false, 'key', 'outer', array (
 ));
@@ -57,9 +58,11 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['contact']->value) {
 ?>
                         <tr class="pago">
-                            <td class="pago"> <span class="font-weight-light" style="float: left"><?php echo $_smarty_tpl->tpl_vars['key']->value;?>
+                            <td class="pago"> <span class="font-weight-light" style="float: left"><?php echo $_smarty_tpl->tpl_vars['contact']->value[1];?>
 </span></td>
-                            <td class="pago"> <span class="font-weight-light" style="float: left"><?php echo $_smarty_tpl->tpl_vars['contact']->value;?>
+                            <td class="pago"> <span class="font-weight-light" style="float: left"><?php echo $_smarty_tpl->tpl_vars['contact']->value[0];?>
+</span></td>
+                        <td class="pago"> <span class="font-weight-light" style="float: left"><?php echo $_smarty_tpl->tpl_vars['contact']->value[2];?>
 </span></td></tr>
 
                     <?php
@@ -113,7 +116,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <input name="notify_url" type="hidden" value="http://tienda/pagar.php" />
                     <input name="rm" type="hidden" value="2" />
 
-
+                    
                     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['productos']->value, 'contact', false, 'key', 'outer', array (
 ));
@@ -134,6 +137,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
                     <input type="image" src="http://www.paypal.com/es_ES/i/btn/x-click-but01.gif" border="0" name="submit" alt="Realice pagos con PayPal: es rápido, gratis y seguro">
                 </form>
+                
             </div>
 
 

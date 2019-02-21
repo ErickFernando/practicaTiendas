@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-02-21 08:37:33
+/* Smarty version 3.1.33, created on 2019-02-21 11:37:56
   from 'C:\wamp\www\carpetTienda\Tienda_Practica8\template\listadoProductos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c6e634dc10d32_20989804',
+  'unifunc' => 'content_5c6e8d9457b137_76240280',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af30dce021a79be3899b5b05b1ac437c80a7ed03' => 
     array (
       0 => 'C:\\wamp\\www\\carpetTienda\\Tienda_Practica8\\template\\listadoProductos.tpl',
-      1 => 1550738198,
+      1 => 1550748976,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c6e634dc10d32_20989804 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c6e8d9457b137_76240280 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
     <head>
@@ -52,7 +52,7 @@ function content_5c6e634dc10d32_20989804 (Smarty_Internal_Template $_smarty_tpl)
                             </tr> 
                         </thead>
                         <tbody>
-                            
+
                             <tr> 
                                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['productos']->value, 'contact', false, NULL, 'outer', array (
@@ -60,26 +60,31 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['contact']->value) {
 ?>
-                                    <td> <?php echo $_smarty_tpl->tpl_vars['contact']->value['nombre_corto'];?>
+                                    <?php if (($_smarty_tpl->tpl_vars['contact']->value['familia'] == 'ORDENA')) {?>
+                                        <td> <a href="descripcion.php?productos=<?php echo $_smarty_tpl->tpl_vars['contact']->value['cod'];?>
+"><?php echo $_smarty_tpl->tpl_vars['contact']->value['nombre_corto'];?>
+</a>
+                                        <?php } else { ?>
+                                        <td> <?php echo $_smarty_tpl->tpl_vars['contact']->value['nombre_corto'];?>
 
-                                    </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['contact']->value['PVP'];?>
+                                        </td><?php }?> 
+                                        <td><?php echo $_smarty_tpl->tpl_vars['contact']->value['PVP'];?>
 </td>
-                                    <td>  <form action="productos.php" method="POST">
-                                            <input type="hidden" name="cod" value="<?php echo $_smarty_tpl->tpl_vars['contact']->value['cod'];?>
+                                        <td>  <form action="productos.php" method="POST">
+                                                <input type="hidden" name="cod" value="<?php echo $_smarty_tpl->tpl_vars['contact']->value['cod'];?>
 ">
-                                            <input type="submit" class="btn btn-light"name="añadir" value="añadir"></form></td> </tr>
-                                        <?php
+                                                <input type="submit" class="btn btn-light"name="añadir" value="añadir"></form></td></tr>
+                                                <?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>               
-                        </tbody> 
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>                     
+                                    </tbody> 
 
-                    </table>
+                                </table>
 
-                </section>
-            </div>
-        </div>
-    </body>
-</html><?php }
+                            </section>
+                        </div>
+                    </div>
+                </body>
+            </html><?php }
 }

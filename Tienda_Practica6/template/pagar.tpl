@@ -21,13 +21,14 @@
                     <thead>
                         <tr class="pago"><th class="pago">Articulo</th>
                             <th class="pago">Cantidad</th>
-                            <th class="pago">Precio Unitario</th></tr>
+                            <th class="pago">Precio</th></tr>
 
                     </thead>
                     {foreach name=outer item=contact key=key from=$productos}
                         <tr class="pago">
-                            <td class="pago"> <span class="font-weight-light" style="float: left">{$key}</span></td>
-                            <td class="pago"> <span class="font-weight-light" style="float: left">{$contact}</span></td></tr>
+                            <td class="pago"> <span class="font-weight-light" style="float: left">{$contact[1]}</span></td>
+                            <td class="pago"> <span class="font-weight-light" style="float: left">{$contact[0]}</span></td>
+                            <td class="pago"> <span class="font-weight-light" style="float: left">{$contact[2]}</span></td></tr>
 
                     {/foreach} 
 

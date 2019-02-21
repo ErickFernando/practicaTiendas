@@ -21,13 +21,15 @@
                     <thead>
                         <tr class="pago"><th class="pago">Articulo</th>
                             <th class="pago">Cantidad</th>
-                            <th class="pago">Precio Unitario</th></tr>
+                            <th class="pago">Precio</th></tr>
 
                     </thead>
+                   
                     {foreach name=outer item=contact key=key from=$productos}
                         <tr class="pago">
-                            <td class="pago"> <span class="font-weight-light" style="float: left">{$key}</span></td>
-                            <td class="pago"> <span class="font-weight-light" style="float: left">{$contact}</span></td></tr>
+                            <td class="pago"> <span class="font-weight-light" style="float: left">{$contact[1]}</span></td>
+                            <td class="pago"> <span class="font-weight-light" style="float: left">{$contact[0]}</span></td>
+                        <td class="pago"> <span class="font-weight-light" style="float: left">{$contact[2]}</span></td></tr>
 
                     {/foreach} 
 
@@ -73,17 +75,18 @@
                     <input name="notify_url" type="hidden" value="http://tienda/pagar.php" />
                     <input name="rm" type="hidden" value="2" />
 
-
+                    
                     {foreach name=outer item=contact key=key from=$productos}
-                        <input type="hidden" name="quantify_1" value="5">
-                        <input type="hidden" name="item_name_1" value="{$key}">
-                        <input type="hidden" name="amount_1" value="1000">
+                        <input type="hidden" name="quantify_1" value="{$contact[2]}">
+                        <input type="hidden" name="item_name_1" value="{$contact[1]}">
+                        <input type="hidden" name="amount_1" value="{$contact[0]}">
                     {/foreach}
 
                     <input type="hidden" name="item_name" value="Compra de {$user}">
 
                     <input type="image" src="http://www.paypal.com/es_ES/i/btn/x-click-but01.gif" border="0" name="submit" alt="Realice pagos con PayPal: es rápido, gratis y seguro">
                 </form>
+                
             </div>
 
 
