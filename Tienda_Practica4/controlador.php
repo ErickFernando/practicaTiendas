@@ -7,7 +7,7 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
 
-
+//desconectamos
 if (isset($_POST['desconectar'])) {
     session_destroy();
     header("Location:loggin.php?msj=Gracias por su visita");

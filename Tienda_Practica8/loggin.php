@@ -10,14 +10,14 @@ $smarty->template_dir = "./template";
 $smarty->compile_dir = "./template_c";
 
 
-
+//esta parte se ejecuta si han tratado de ire a otra pagina sin autentificarse
 $msj = isset($_GET['msj']) ? $_GET['msj'] : null;
 
 
-//leeremos la tabla de usuarios
+//conectamos
 
 if (isset($_POST['conectar'])) {
-
+//leemos usuari y pass
     $user = filter_input(INPUT_POST, 'user');
     $pass = filter_input(INPUT_POST, 'pass');
     if (ConexionPDO::validarUsuario($user, $pass)) {
@@ -25,11 +25,11 @@ if (isset($_POST['conectar'])) {
         $smarty->assign('user', $_SESSION['user']);
         header("location:productos.php");
     } else {
-        $smarty->assign('msj', "Ella no te ama my friend.<br/> Verifica que has introducido bien los datos.");
+        $smarty->assign('msj', "Verifica que has introducido bien los datos.");
         $smarty->display('loggin.tpl');
     }
 } else {
-     $smarty->assign('msj', $msj);
+    $smarty->assign('msj', $msj);
     $smarty->display('loggin.tpl');
 }
 

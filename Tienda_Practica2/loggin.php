@@ -10,12 +10,12 @@ $smarty->template_dir = "./template";
 $smarty->compile_dir = "./template_c";
 
 
-
+//esta parte se ejecuta si tratan de conectar en otra pagina sin autenticarse
 $msj = isset($_GET['msj']) ? $_GET['msj'] : null;
 
 
-//leeremos la tabla de usuarios
 
+//conectamos y comprobamos al usuarui y el password
 if (isset($_POST['conectar'])) {
 
     $user = filter_input(INPUT_POST, 'user');

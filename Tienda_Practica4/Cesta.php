@@ -17,6 +17,12 @@ class Cesta {
         
     }
 
+    //
+    /**
+     * //obtenemos la variablse sesion de los productos
+     * y agregamos en un nuevo array cantidad,precio y codigo
+     * @return type
+     */
     public static function obtenerProductos() {
 
         if (isset($_SESSION['productos'])) {
@@ -27,6 +33,12 @@ class Cesta {
         return self::$productos;
     }
 
+    /**
+     * Obtenemos el precio  y multiplicamos segun la cantidad
+     * 
+     * @param type $cod
+     * @return type
+     */
     public static function obtenerPrecio($cod) {
         $precio = 0;
         $pro = ConexionPDO::obtieneProductos("producto");
@@ -39,6 +51,9 @@ class Cesta {
         return $precio;
     }
 
+    /**
+     * agregamos nuevos articulos
+     */
     public static function nuevoArticulo() {
         $cod = $_SESSION['cod'];
         $_SESSION['productos'][$cod] ++;
@@ -55,11 +70,21 @@ class Cesta {
         $this->productos = $productos;
     }
 
+    /**
+     * recuperamos la cantidad que hay de cada productos
+     * y lo devolvemos
+     * @param type $cod
+     * @return type
+     */
     static function getUniades($cod) {
         $unidades = $_SESSION['productos'][$cod];
         return $unidades;
     }
 
+    /**
+     * sumamos todos los precios y devolvemos el total
+     * @return type
+     */
     public static function getTotal() {
         $p = self::$productos;
         $total = 0;

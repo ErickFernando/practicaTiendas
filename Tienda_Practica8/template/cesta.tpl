@@ -17,6 +17,7 @@
         </div>
         <div class="container-fluid" style="background-color: #CECBCB">
             <section >
+                {$productosCesta|@var_dump}
                 {if !empty($productosCesta)}
                     {foreach name=outer item=contact from=$productosCesta}
                         <span class="font-weight-light" style="float: left">{$contact[0]} {$contact[1]} {$contact[2]}$</span>

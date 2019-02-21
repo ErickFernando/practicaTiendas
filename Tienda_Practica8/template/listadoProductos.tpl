@@ -28,6 +28,7 @@
                             </tr> 
                         </thead>
                         <tbody>
+                            
                             <tr> 
                                 {foreach name=outer item=contact from=$productos}
                                     <td> {$contact['nombre_corto']}

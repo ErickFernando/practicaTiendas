@@ -20,29 +20,38 @@ $productos = ConexionPDO::obtieneProductos("producto");
 $smarty->assign('productos', $productos);
 $smarty->assign('user', $user);
 
+//vaciamos la variable de session de productos
 if (isset($_POST['Vaciar'])) {
 
     $_SESSION['productos'] = null;
 }
-
+//añadismos productos
 if (isset($_POST['añadir'])) {
-
+    //recuperamos el codigo
     $_SESSION['cod'] = $_POST['cod'];
+    //agregamos nuevos articulos
     Cesta::nuevoArticulo();
+    //obtenemos los productos
     $productos = Cesta::obtenerProductos();
     $total = Cesta::getTotal();
+    //agregamos a smarty
     $smarty->assign('total', $total);
     $smarty->assign('productosCesta', $productos);
 }
+//opcion quitar
 if (isset($_POST['quitar'])) {
+    //recuperamos el codigo
     $_SESSION['cod'] = $_POST['cod'];
+    //eliminamos el productos
     Cesta::eliminarProducto();
+    //obtenemos el producto
     $productos = Cesta::obtenerProductos();
     $total = Cesta::getTotal();
     $smarty->assign('total', $total);
     $smarty->assign('productosCesta', $productos);
 }
-if (Cesta::obtenerProductos() == null) {
+//si la vriable de sesion de prductos es null creamos los input con disabled
+if ($_SESSION['productos'] == null) {
     $deshabilitado = "<input type='submit' class='btn btn-light' style='border-radius: 20px;font-size: 12px; margin-left: 20px;margin-bottom: 5px' value='Pagar' name='Pagar' disabled>";
     $deshabilitado2 = "<input type='submit' class='btn btn-light' style='border-radius: 20px;font-size: 12px; margin-left: 20px;margin-bottom: 5px' value='Vaciar' name='Vaciar' disabled>";
     $smarty->assign('input', $deshabilitado);
@@ -53,7 +62,7 @@ if (Cesta::obtenerProductos() == null) {
     $smarty->assign('input', $habilitado);
     $smarty->assign('input2', $habilitado2);
 }
-
+//si la opcion es pagar 
 if (isset($_POST['Pagar'])) {
     $smarty->display('pagar.tpl');
 } else {

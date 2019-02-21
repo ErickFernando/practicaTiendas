@@ -10,12 +10,11 @@ $smarty->template_dir = "./template";
 $smarty->compile_dir = "./template_c";
 
 
-
+//se ejcuta si tratan de conecctarse sin atenticarse
 $msj = isset($_GET['msj']) ? $_GET['msj'] : null;
 
 
-//leeremos la tabla de usuarios
-
+//comprobamos el que el usuario existe
 if (isset($_POST['conectar'])) {
 
     $user = filter_input(INPUT_POST, 'user');

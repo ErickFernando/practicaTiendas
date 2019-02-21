@@ -60,7 +60,8 @@
                         <td class="pago">{$TotalResumen|string_format:"%.2f"}</td>
                     </tr>
                 </table>
-                    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" style="position: absolute;right:70%;top:62%">
+                <h3>Para ver el <strong>pdf</strong> presiona <a>aqui</a>{$pdf}</h3>
+                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" style="position: absolute;right:70%;top:62%">
                     <input name="cmd" type="hidden" value="_cart" />
                     <!--
                      Mi correo de pay pall identificador email ID en profile de mi cuenta de business
