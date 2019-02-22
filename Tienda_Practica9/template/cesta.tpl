@@ -11,11 +11,22 @@
     </head>
     <body>
         <script>
+            /**
+             * funcion que recibe el codigo del producto a añadir
+             * y lo enviar mediante ajax
+             * @param {type} cod
+             * @returns {Boolean}
+             */
             function remov2(cod) {
 
                 JaxonRespuestaAjax.removP(cod);
                 return false;
             }
+            /**
+             * funcion que recibe el codigo y lo envia mediante
+             * ajax a la otra funcion para ser eliminado
+             * @returns {Boolean}
+             */
             function vaciar2() {
 
                 JaxonRespuestaAjax.vaciarLista();

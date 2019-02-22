@@ -1,10 +1,10 @@
 <?php
-
+//cargamos las clases, ajax,Smarty
 require ('cargarcontroladores.php');
 require ('controlador.php');
 
 require_once './vendor/autoload.php';
-
+//creamos el objeto smarty
 $smarty = new Smarty;
 $smarty->template_dir = "./template";
 $smarty->compile_dir = "./template_c";
@@ -15,7 +15,12 @@ use Jaxon\Response\Response;
 $ajax = jaxon(); //$ajax = new Jaxon();
 
 class RespuestaAjax {
-
+    /**
+     * Funcion que recibe el codigo y lo añade
+     * a la lista
+     * @param type $cod
+     * @return Response
+     */
     public function addP($cod) {
 
         $respuesta = new Response();
@@ -26,7 +31,11 @@ class RespuestaAjax {
 
         return $respuesta;
     }
-
+    /**
+     * recibe el codigo y lo eliminar de la lista
+     * @param type $cod
+     * @return Response
+     */
     public function removP($cod) {
 
         $respuesta = new Response();
@@ -37,7 +46,10 @@ class RespuestaAjax {
 
         return $respuesta;
     }
-
+    /**
+     * Vacia la variable de session productos
+     * @return Response
+     */
     public function vaciarLista() {
 
         $respuesta = new Response();
