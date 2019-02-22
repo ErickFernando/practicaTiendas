@@ -2,7 +2,7 @@
 
 /**
  * Description of Cesta
- *<?php
+ * <?php
 
  * @author Erick Fer
  */
@@ -64,6 +64,13 @@ class Cesta {
 
         $cod = $_SESSION['cod'];
         $_SESSION['productos'][$cod] ++;
+//        $p = new Producto($_SESSION['cod']);
+//
+//        self::agregarProductos($p->getCod(), $p->getPvp());
+    }
+
+    public static function vaciar() {
+        $_SESSION['productos'] = null;
 //        $p = new Producto($_SESSION['cod']);
 //
 //        self::agregarProductos($p->getCod(), $p->getPvp());

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-02-21 11:48:59
+/* Smarty version 3.1.33, created on 2019-02-21 11:55:31
   from 'C:\wamp\www\carpetTienda\Tienda_Practica7\template\pagar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c6e902b6e0480_92615759',
+  'unifunc' => 'content_5c6e91b30843c9_51644377',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '320f569cce9cccce73e92e40faae809697fa6396' => 
     array (
       0 => 'C:\\wamp\\www\\carpetTienda\\Tienda_Practica7\\template\\pagar.tpl',
-      1 => 1550749735,
+      1 => 1550749837,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c6e902b6e0480_92615759 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c6e91b30843c9_51644377 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
     <head>
@@ -123,10 +123,12 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['contact']->value) {
 ?>
-                        <input type="hidden" name="quantify_1" value="5">
-                        <input type="hidden" name="item_name_1" value="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
+                        <input type="hidden" name="quantify_1" value="<?php echo $_smarty_tpl->tpl_vars['contact']->value[2];?>
 ">
-                        <input type="hidden" name="amount_1" value="1000">
+                        <input type="hidden" name="item_name_1" value="<?php echo $_smarty_tpl->tpl_vars['contact']->value[1];?>
+">
+                        <input type="hidden" name="amount_1" value="<?php echo $_smarty_tpl->tpl_vars['contact']->value[0];?>
+">
                     <?php
 }
 }

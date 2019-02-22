@@ -10,6 +10,18 @@
         <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     </head>
     <body>
+        <script>
+            function remov2(cod) {
+
+                JaxonRespuestaAjax.removP(cod);
+                return false;
+            }
+            function vaciar2() {
+
+                JaxonRespuestaAjax.vaciarLista();
+                return false;
+            }
+        </script>
         <div class="container-fluid">
             <header >
                 <h3>Cesta</h3>
@@ -17,13 +29,12 @@
         </div>
         <div class="container-fluid" style="background-color: #CECBCB">
             <section >
-               
+
                 {if !empty($productosCesta)}
                     {foreach name=outer item=contact from=$productosCesta}
                         <span class="font-weight-light" style="float: left">{$contact[0]} {$contact[1]} {$contact[2]}$</span>
-                        <form action="productos.php" method="POST" ><input type="hidden" name="cod" value="{$contact[1]}">
-                            <input type="submit" class="btn btn-dark" style="border-radius: 20px;font-size: 12px; margin-left: 20px;margin-bottom: 5px" name="quitar" value="quitar" ></form>
-                        {/foreach} 
+                        <button onclick='remov2("{$contact[1]}");' class='btn btn-light' style='border-radius: 20px;font-size: 12px; margin-left: 20px;margin-bottom: 5px'>Quitar</button><br/>
+                    {/foreach} 
 
                 {else}
                     <span class="font-weight-light"> Cesta Vacia</span>
@@ -33,13 +44,14 @@
             </section>
 
         </div>
+
         <div class="container-fluid bg-dark text-white">
             <section >
                 <span class="font-weight-light" style="float: left">{if !empty($total)}Total {$total}${/if} </span>
                 <form action="productos.php" method="post">
                     {$input}
-                   {$input2}
                 </form>
+                {$input2}
             </section>
         </div>
     </body>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-02-21 08:37:33
+/* Smarty version 3.1.33, created on 2019-02-21 11:54:55
   from 'C:\wamp\www\carpetTienda\Tienda_Practica8\template\cesta.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c6e634ddecc13_47336996',
+  'unifunc' => 'content_5c6e918f4384b7_77926128',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '578849876438ad4afe1d1b155759bd321b3661e1' => 
     array (
       0 => 'C:\\wamp\\www\\carpetTienda\\Tienda_Practica8\\template\\cesta.tpl',
-      1 => 1550738249,
+      1 => 1550749103,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c6e634ddecc13_47336996 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c6e918f4384b7_77926128 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
     <head>
@@ -40,8 +40,7 @@ function content_5c6e634ddecc13_47336996 (Smarty_Internal_Template $_smarty_tpl)
         </div>
         <div class="container-fluid" style="background-color: #CECBCB">
             <section >
-                <?php echo var_dump($_smarty_tpl->tpl_vars['productosCesta']->value);?>
-
+               
                 <?php if (!empty($_smarty_tpl->tpl_vars['productosCesta']->value)) {?>
                     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['productosCesta']->value, 'contact', false, NULL, 'outer', array (

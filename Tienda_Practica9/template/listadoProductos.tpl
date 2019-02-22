@@ -5,10 +5,19 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <title>Listado</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
         <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+
     </head>
     <body>
+
+
+        <script>
+            function add2(cod) {
+                JaxonRespuestaAjax.addP(cod);
+                return false;
+            }
+
+        </script>
         <div class="container-fluid">
             <div>
                 <header class="container">
@@ -37,10 +46,8 @@
                                         <td> {$contact['nombre_corto']}
                                         </td>{/if} 
                                         <td>{$contact['PVP']}</td>
-                                        <td>  <form action="productos.php" method="POST">
-                                                <input type="hidden" name="cod" value="{$contact['cod']}">
-                                                <input type="submit" class="btn btn-light"name="añadir" value="añadir"></form></td></tr>
-                                                {/foreach}                     
+                                        <td><button onclick='add2("{$contact['cod']}");'>Añadir</button></td></tr>
+                                        {/foreach}                     
                                     </tbody> 
 
                                 </table>
