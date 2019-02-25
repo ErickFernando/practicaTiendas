@@ -13,17 +13,20 @@
         {$getcss}
         {$getJS}
         {$getScript}
-        <div class="container-fluid">
-          
-                <div class="row">
-                    <div class="col-md-8 col-lg-8">
-                        {include file="listadoProductos.tpl"}
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        {include file="cesta.tpl"}
-                    </div>
-                </div>
-           
+        <div  style="float:right">
+            <header class="container" >
+                <form style="float: right; margin-left: 15px" action="controlador.php" method="POST"><input type="submit" name="desconectar" value="desconectar" class="btn btn-secondary"></form>
+                <span style="float: right"> Usuario : <span style="color: red;">{$user}</span>
+                </span>
+            </header>
+        </div>
+        <div class="container-fluid" style="float:left">
+            <section>
+                <form action="./productos.php" method="POST">
+                    {include file="listadoProductos.tpl"}
+                    {include file="cesta.tpl"}
+                </form>
+            </section>
         </div>
     </body>
 </html>

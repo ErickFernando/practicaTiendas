@@ -64,13 +64,21 @@ class Cesta {
 
         $cod = $_SESSION['cod'];
         $_SESSION['productos'][$cod] ++;
+
+        header("Location: productos.php"); // Evitar que incremente al recargar página 'icon'...
+
+        exit();
 //        $p = new Producto($_SESSION['cod']);
 //
 //        self::agregarProductos($p->getCod(), $p->getPvp());
     }
-
+/**
+ * Vaciamos la cesta
+ */
     public static function vaciar() {
         $_SESSION['productos'] = null;
+        header("Location: productos.php"); // Evitar que incremente al recargar página 
+        exit();
 //        $p = new Producto($_SESSION['cod']);
 //
 //        self::agregarProductos($p->getCod(), $p->getPvp());
@@ -88,6 +96,8 @@ class Cesta {
         if ($_SESSION['productos'][$cod] == 0) {
             unset($_SESSION['productos'][$cod]);
         }
+        header("Location: productos.php"); // Evitar que incremente al recargar página 
+        exit();
 //        $p = new Producto($_SESSION['cod']);
 //
 //        self::agregarProductos($p->getCod(), $p->getPvp());

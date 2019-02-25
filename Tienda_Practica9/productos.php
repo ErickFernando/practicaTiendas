@@ -1,4 +1,5 @@
 <?php
+
 //cargamos las clases, ajax,Smarty
 require ('cargarcontroladores.php');
 require ('controlador.php');
@@ -15,6 +16,7 @@ use Jaxon\Response\Response;
 $ajax = jaxon(); //$ajax = new Jaxon();
 
 class RespuestaAjax {
+
     /**
      * Funcion que recibe el codigo y lo añade
      * a la lista
@@ -26,11 +28,13 @@ class RespuestaAjax {
         $respuesta = new Response();
 
         $_SESSION['cod'] = $cod;
+
         //agregamos el articulo
         Cesta::nuevoArticulo();
 
         return $respuesta;
     }
+
     /**
      * recibe el codigo y lo eliminar de la lista
      * @param type $cod
@@ -46,6 +50,7 @@ class RespuestaAjax {
 
         return $respuesta;
     }
+
     /**
      * Vacia la variable de session productos
      * @return Response
@@ -54,8 +59,6 @@ class RespuestaAjax {
 
         $respuesta = new Response();
 
-
-        //agregamos el articulo
         Cesta::vaciar();
 
         return $respuesta;
@@ -78,18 +81,17 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 //recibo al usuario
 $user = $_SESSION['user'];
 
+
 //mostramos los datos en listadoProtuctos.tpl
 $productos = ConexionPDO::obtieneProductos("producto");
-
-
-//pasamos los productos para servizualizados en la plantilla
-//el usuario con el que estas loggeado
-$smarty->assign('productos', $productos);
-$smarty->assign('user', $user);
-
-//vaciamos el array de los productos
 $_SESSION['productosT'] = Cesta::obtenerProductos();
 $_SESSION['total'] = Cesta::getTotal();
+
+
+//el usuario con el que estas loggeado
+$smarty->assign('user', $user);
+
+
 
 //añadimos productos a la cesta
 if (isset($_POST['añadir'])) {
@@ -129,7 +131,7 @@ if ($_SESSION['productos'] == null) {
     $smarty->assign('input2', $deshabilitado2);
 } else {
     $habilitado = "<input type='submit'  class='btn btn-light' style='float:left;border-radius: 20px;font-size: 12px; margin-left: 20px;margin-bottom: 5px' value='Pagar' name='Pagar'>";
-    $habilitado2 = "<button onclick='vaciar2();' class='btn btn-light' style='border-radius: 20px;font-size: 12px; margin-left: 20px;margin-bottom: 5px' >Vaciar</button>";
+    $habilitado2 = "<button onclick='JaxonRespuestaAjax.vaciarLista();' class='btn btn-light' style='border-radius: 20px;font-size: 12px; margin-left: 20px;margin-bottom: 5px' >Vaciar</button>";
     $smarty->assign('input', $habilitado);
     $smarty->assign('input2', $habilitado2);
 }
@@ -140,9 +142,14 @@ if ($_SESSION['productos'] == null) {
 if (isset($_POST['Pagar'])) {
     //redirigimos a pagar.php
     header("Location:pagar.php?");
-} else {
-    //si no mostrar el template actual
-    $smarty->assign('total', $_SESSION['total']);
-    $smarty->assign('productosCesta', $_SESSION['productosT']);
-    $smarty->display('productos.tpl');
+    exit();
 }
+
+
+
+//pasamos los productos para servizualizados en la plantilla
+$smarty->assign('total', $_SESSION['total']);//cest.tpl
+$smarty->assign('productosCesta', $_SESSION['productosT']);//cesta.tpl
+$smarty->assign('productos', $productos); //listaproductos.tpl
+$smarty->display('productos.tpl');
+

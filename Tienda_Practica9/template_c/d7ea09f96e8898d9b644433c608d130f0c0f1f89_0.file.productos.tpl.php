@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-02-22 09:56:59
+/* Smarty version 3.1.33, created on 2019-02-25 22:33:57
   from 'C:\wamp\www\carpetTienda\Tienda_Practica9\template\productos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c6fc76b472f51_19301267',
+  'unifunc' => 'content_5c746d5559a448_87999082',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd7ea09f96e8898d9b644433c608d130f0c0f1f89' => 
     array (
       0 => 'C:\\wamp\\www\\carpetTienda\\Tienda_Practica9\\template\\productos.tpl',
-      1 => 1550829403,
+      1 => 1551134035,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:cesta.tpl' => 1,
   ),
 ),false)) {
-function content_5c6fc76b472f51_19301267 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c746d5559a448_87999082 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
     <head>
@@ -41,19 +41,29 @@ function content_5c6fc76b472f51_19301267 (Smarty_Internal_Template $_smarty_tpl)
 
         <?php echo $_smarty_tpl->tpl_vars['getScript']->value;?>
 
-        <div class="container-fluid">
-          
-                <div class="row">
-                    <div class="col-md-8 col-lg-8">
-                        <?php $_smarty_tpl->_subTemplateRender("file:listadoProductos.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+        <div  style="float:right">
+            <header class="container" >
+                <form style="float: right; margin-left: 15px" action="controlador.php" method="POST"><input type="submit" name="desconectar" value="desconectar" class="btn btn-secondary"></form>
+                <span style="float: right"> Usuario : <span style="color: red;"><?php echo $_smarty_tpl->tpl_vars['user']->value;?>
+</span>
+                </span>
+            </header>
+        </div>
+        <div class="container-fluid" style="float:left">
+            <section>
+
+                <form action="./productos.php" method="POST">
+
+                    <?php $_smarty_tpl->_subTemplateRender("file:listadoProductos.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <?php $_smarty_tpl->_subTemplateRender("file:cesta.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+
+
+                    <?php $_smarty_tpl->_subTemplateRender("file:cesta.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-                    </div>
-                </div>
-           
+
+                </form>
+
+            </section>
         </div>
     </body>
 </html><?php }
